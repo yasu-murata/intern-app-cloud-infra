@@ -167,6 +167,7 @@ gcloud compute networks vpc-access connectors create ${VPC_CONNECTOR_NAME} \
 ```
 SecretManagerにDBアクセスのパスワードを保管する
 ```shell
+gcloud services enable secretmanager.googleapis.com
 export SECRET_NAME="intern-db-password"
 echo -n "${DB_PASS}" | gcloud secrets create ${SECRET_NAME} \
     --data-file=-
