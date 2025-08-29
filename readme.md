@@ -48,7 +48,6 @@ gcloud sql instances create ${INSTANCE_NAME} \
     --tier=db-g1-small \
     --storage-type=SSD \
     --storage-size=20GB \
-    # --database-flags=cloudsql.iam_authentication=on \
     --network=projects/${PROJECT_ID}/global/networks/${NETWORK} \
     --no-assign-ip
 ```
