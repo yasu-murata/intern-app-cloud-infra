@@ -12,7 +12,7 @@ provider "google" {
   region  = var.region
 }
 
-# 1. サーバーレスVPCアクセスコネクタ
+# 1. VPCアクセスコネクタ
 resource "google_vpc_access_connector" "connector" {
   name  = "intern-connector"
   ip_cidr_range = "10.8.0.0/28"
@@ -43,7 +43,7 @@ resource "google_cloud_run_v2_service" "backend_service" {
       egress    = "PRIVATE_RANGES_ONLY"
     }
     containers {
-      image = "gcr.io/${var.project_id}/intern-app-backend:v1"
+      image = "${var.region}-docker.pkg.dev/${var.project_id}/intern-app-repo/backend-service:v1"      
       env {
         name  = "INSTANCE_CONNECTION_NAME"
         value = var.instance_connection_name
