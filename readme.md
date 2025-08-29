@@ -221,6 +221,7 @@ export FRONTEND_BUCKET_NAME="intern-frontend-bucket-${PROJECT_ID}"
 ```shell
 cd frontend
 npm install
+npm run build
 ```
 GCSバケットを作成
 ```shell
