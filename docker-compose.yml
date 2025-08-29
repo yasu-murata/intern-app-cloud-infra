@@ -1,0 +1,12 @@
+services:
+  db:
+    image: postgres:14-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=appuser
+      - POSTGRES_PASSWORD=YourSecurePassword123
+      - POSTGRES_DB=appdb
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
