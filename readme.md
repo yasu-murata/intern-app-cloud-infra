@@ -74,7 +74,7 @@ gcloud sql users create ${DB_USER} \
 
 ソースコードを取得
 ```shell
-git clone https://github.com/mura123yasu/summer-intern-app.git
+git clone https://github.com/yasu-murata/intern-app-cloud-infra.git
 ```
 投入データ配置用のGCSバケットを作成
 ```shell
