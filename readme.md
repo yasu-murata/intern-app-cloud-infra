@@ -296,6 +296,7 @@ HTTPターゲットプロキシを作成
 グローバルIPアドレスを予約
 ```shell
 gcloud compute addresses create ${LB_IP_NAME} --global
+export LB_IP=$(gcloud compute addresses describe ${LB_IP_NAME} --global --format='value(address)')
 ```
 HTTP転送ルールを作成
 ```shell
@@ -307,7 +308,6 @@ gcloud compute forwarding-rules create intern-app-http-rule \
 ```
 エンドポイントURLを確認
 ```shell
-export LB_IP=$(gcloud compute addresses describe ${LB_IP_NAME} --global --format='value(address)')
 echo "You can now access your application at http://${LB_IP}"
 ```
 確認したURLにアクセスして、ちゃんと繋がるか確認する（確認の際は、CloudRunのログも出力しておくと良い）
